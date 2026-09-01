@@ -37,12 +37,19 @@
     scroll-behavior: smooth;
     background-color: var(--color-ivory);
     color: var(--color-charcoal);
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   body {
     background-color: var(--color-ivory);
     color: var(--color-charcoal);
+    width: 100%;
+    max-width: 100vw;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

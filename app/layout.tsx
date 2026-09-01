@@ -86,9 +86,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${geistSans.variable} ${geistMono.variable} scroll-smooth`}
+      className={`${cormorant.variable} ${geistSans.variable} ${geistMono.variable} scroll-smooth w-full max-w-[100vw] overflow-x-hidden`}
     >
-      <body className="bg-ivory text-charcoal font-sans min-h-screen antialiased flex flex-col">
+      <body className="bg-ivory text-charcoal font-sans min-h-screen antialiased flex flex-col w-full max-w-[100vw] overflow-x-hidden">
         {children}
       </body>
     </html>

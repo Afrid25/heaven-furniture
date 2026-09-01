@@ -78,7 +78,7 @@ export function Hero() {
       />
 
       {/* ─── Layer 3: Hero Content ─── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full pb-10 sm:pb-14 lg:pb-16 pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-10 sm:pb-14 lg:pb-16 pt-32">
         <div className="flex flex-col gap-6 sm:gap-7 max-w-3xl">
           {/* Eyebrow — secondary phrase */}
           <div
@@ -140,7 +140,7 @@ export function Hero() {
       </div>
 
       {/* ─── Layer 4: Bottom Info Strip ─── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full pb-6 sm:pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-6 sm:pb-8">
         <div
           className="hero-float flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4 sm:py-5 px-5 sm:px-7 glass-dark rounded-sm text-xs sm:text-[0.7rem] text-white"
           style={{ animationDelay: "1.15s" }}

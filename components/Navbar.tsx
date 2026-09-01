@@ -43,11 +43,11 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 w-full max-w-[100vw] overflow-x-hidden ${
           open
-            ? "bg-transparent py-5"
+            ? "bg-transparent py-4 sm:py-5"
             : isOverHero
-            ? "bg-gradient-to-b from-[rgba(28,27,24,0.5)] via-[rgba(28,27,24,0.15)] to-transparent py-5"
+            ? "bg-gradient-to-b from-[rgba(28,27,24,0.6)] via-[rgba(28,27,24,0.2)] to-transparent py-3.5 sm:py-5"
             : "glass-nav py-3.5 shadow-sm"
         }`}
       >
@@ -58,14 +58,14 @@ export function Navbar() {
           Skip to main showroom content
         </a>
 
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-2 sm:gap-4">
           {/* Brand Logo */}
           <a
             href="#top"
-            className="flex items-center gap-3 group shrink-0 focus-visible:ring-2 focus-visible:ring-walnut"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0 focus-visible:ring-2 focus-visible:ring-walnut"
             aria-label={`${site.name} — Luxury Bespoke Furniture Showroom`}
           >
-            <div className={`relative py-1.5 px-2.5 rounded-md transition-all duration-300 ${
+            <div className={`relative py-1 px-2 sm:py-1.5 sm:px-2.5 rounded-md transition-all duration-300 ${
               isOverHero
                 ? "bg-white/5 backdrop-blur-sm border border-white/10"
                 : "bg-stone/40 border border-stone-dark/30"
@@ -75,7 +75,7 @@ export function Navbar() {
                 alt={site.name}
                 width={180}
                 height={60}
-                className={`h-7 sm:h-8 w-auto object-contain transition-all duration-300 ${
+                className={`h-6 sm:h-8 w-auto object-contain transition-all duration-300 ${
                   isOverHero ? "brightness-200 invert-0" : ""
                 }`}
                 priority
@@ -99,14 +99,14 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <nav
-            className="hidden lg:flex items-center gap-6 xl:gap-8"
+            className="hidden lg:flex items-center gap-5 xl:gap-8 shrink-0"
             aria-label="Primary Showroom Navigation"
           >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative py-1.5 text-[0.68rem] font-semibold tracking-[0.16em] uppercase transition-colors duration-300 group ${
+                className={`relative py-1.5 text-[0.68rem] font-semibold tracking-[0.14em] xl:tracking-[0.16em] uppercase whitespace-nowrap transition-colors duration-300 group ${
                   isOverHero
                     ? "text-white hover:text-white"
                     : "text-charcoal/70 hover:text-charcoal"
@@ -121,12 +121,12 @@ export function Navbar() {
           </nav>
 
           {/* Right Action Cluster */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href={site.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 px-3.5 py-2.5 text-[0.68rem] font-semibold tracking-[0.12em] uppercase transition-all duration-300 rounded-sm ${
+              className={`hidden md:inline-flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 text-[0.65rem] sm:text-[0.68rem] font-semibold tracking-[0.12em] uppercase whitespace-nowrap transition-all duration-300 rounded-sm ${
                 isOverHero
                   ? "text-white hover:text-white bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/50"
                   : "text-charcoal/70 hover:text-charcoal bg-stone/40 hover:bg-stone border border-stone-dark/30 hover:border-walnut/40"
@@ -139,7 +139,7 @@ export function Navbar() {
 
             <a
               href="#consultation"
-              className={`inline-flex items-center gap-2 px-4 py-2.5 text-[0.68rem] font-bold tracking-[0.14em] uppercase transition-all duration-300 rounded-sm ${
+              className={`hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 text-[0.65rem] sm:text-[0.68rem] font-bold tracking-[0.14em] uppercase whitespace-nowrap transition-all duration-300 rounded-sm ${
                 isOverHero
                   ? "glass-cta text-white"
                   : "bg-charcoal text-ivory hover:bg-earth"
@@ -148,23 +148,23 @@ export function Navbar() {
               <span>Book Consultation</span>
               <ArrowUpRight className="size-3.5" />
             </a>
-          </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            className={`lg:hidden inline-flex items-center justify-center p-3 transition-colors rounded-sm focus-visible:ring-2 focus-visible:ring-walnut ${
-              isOverHero
-                ? "text-white hover:text-white bg-white/10 border border-white/30"
-                : "text-charcoal hover:text-walnut bg-stone/40 border border-stone-dark/30"
-            }`}
-            aria-expanded={open}
-            aria-controls="mobile-navigation-drawer"
-            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+            {/* Mobile Menu Toggle */}
+            <button
+              type="button"
+              className={`lg:hidden inline-flex items-center justify-center p-2.5 sm:p-3 transition-colors rounded-sm shrink-0 focus-visible:ring-2 focus-visible:ring-walnut ${
+                isOverHero
+                  ? "text-white hover:text-white bg-white/10 border border-white/30"
+                  : "text-charcoal hover:text-walnut bg-stone/40 border border-stone-dark/30"
+              }`}
+              aria-expanded={open}
+              aria-controls="mobile-navigation-drawer"
+              aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+              onClick={() => setOpen((prev) => !prev)}
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </div>
       </header>
 
