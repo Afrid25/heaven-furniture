@@ -1,19 +1,21 @@
 import React from "react";
 import { Arrow } from "@/components/Arrow";
 
-type Variant = "primary" | "secondary" | "brass" | "ghost" | "ivory";
+type Variant = "primary" | "secondary" | "walnut" | "ghost" | "ivory" | "glass";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-charcoal text-ivory border border-brass/40 hover:bg-charcoal-surface hover:border-brass shadow-lg shadow-black/20 hover:shadow-brass/10",
+    "bg-charcoal text-ivory border border-charcoal hover:bg-earth transition-colors shadow-sm",
   secondary:
-    "bg-ivory text-charcoal border border-brown/20 hover:bg-white hover:border-brass/60 shadow-md",
-  brass:
-    "bg-brass text-charcoal font-bold hover:bg-brass-light border border-brass-light shadow-md shadow-brass/20",
+    "bg-stone text-charcoal border border-stone-dark/50 hover:bg-stone-dark/30 transition-colors",
+  walnut:
+    "glass-cta text-ivory font-bold",
   ghost:
-    "bg-transparent text-ivory border border-white/30 hover:border-brass hover:bg-white/5 hover:text-white",
+    "bg-transparent text-charcoal border border-charcoal/20 hover:border-walnut hover:text-walnut transition-colors",
   ivory:
-    "bg-ivory text-charcoal hover:bg-white hover:text-charcoal border border-ivory",
+    "bg-ivory text-charcoal hover:bg-stone border border-stone transition-colors",
+  glass:
+    "glass-warm text-charcoal hover:border-walnut/40 transition-all",
 };
 
 interface ButtonProps {

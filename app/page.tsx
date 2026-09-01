@@ -7,6 +7,7 @@ import { SignatureShowcase } from "@/components/SignatureShowcase";
 import { BespokeStudio } from "@/components/BespokeStudio";
 import { MaterialsCraft } from "@/components/MaterialsCraft";
 import { ShowroomGuide } from "@/components/ShowroomGuide";
+import { BrandStatement } from "@/components/BrandStatement";
 import { ConsultationSection } from "@/components/ConsultationSection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -15,40 +16,43 @@ export default function Home() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen flex flex-col bg-ivory text-charcoal">
-        {/* Fixed Floating Navigation */}
+        {/* Fixed Navigation */}
         <Navbar />
 
-        {/* Main Content Sections */}
+        {/* Visual Story */}
         <main id="main-content" className="flex-1 w-full overflow-hidden">
-          {/* Scene 01: Hero Arrival */}
+          {/* 01 — Immersive Hero: Brand + Furniture + Atmosphere */}
           <Hero />
 
-          {/* Scene 02: Heritage & MD Philosophy */}
+          {/* 02 — Heritage & Philosophy: Brand introduction */}
           <Heritage />
 
-          {/* Scene 03: Curated Room Collections */}
+          {/* 03 — Curated Collections: Interactive furniture discovery */}
           <CuratedCollections />
 
-          {/* Scene 04: Signature Showcase with Interactive Hotspots & Finish Switcher */}
+          {/* 04 — Signature Showcase: Interactive craftsmanship detail */}
           <SignatureShowcase />
 
-          {/* Scene 05: Bespoke Customization Studio & Interactive Configurator */}
+          {/* 05 — Bespoke Studio: Custom commission configurator */}
           <BespokeStudio />
 
-          {/* Scene 06: Materials & Master Joinery Standards */}
+          {/* 06 — Materials & Craft: Quality and standards */}
           <MaterialsCraft />
 
-          {/* Scene 07: Agrabad Access Road Flagship Showroom Guide */}
+          {/* 07 — Showroom Guide: Flagship experience */}
           <ShowroomGuide />
 
-          {/* Scene 08: Direct Consultation & Inquiry Dispatch */}
+          {/* 08 — Brand Statement: Editorial typography moment */}
+          <BrandStatement />
+
+          {/* 09 — Consultation: Contact and booking */}
           <ConsultationSection />
         </main>
 
-        {/* Global Footer */}
+        {/* Footer */}
         <Footer />
 
-        {/* Floating WhatsApp Concierge Button */}
+        {/* WhatsApp Concierge */}
         <WhatsAppFloat />
       </div>
     </SmoothScroll>

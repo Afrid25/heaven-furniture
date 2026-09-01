@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { ShieldCheck, Sparkles, CheckCircle2, TreePine, Award, Droplets } from "lucide-react";
+import { ShieldCheck, Sparkles, Award, Droplets } from "lucide-react";
 
 export function MaterialsCraft() {
   const materials = [
@@ -40,27 +40,27 @@ export function MaterialsCraft() {
     <section
       id="craftsmanship"
       aria-labelledby="craft-heading"
-      className="relative py-24 sm:py-32 bg-ivory text-charcoal overflow-hidden luxury-noise border-b border-brown/10"
+      className="relative py-24 sm:py-32 bg-ivory text-charcoal overflow-hidden border-b border-stone-dark/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header */}
         <Reveal>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-12 border-b border-brown/15">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-12 border-b border-stone-dark/15">
             <div>
-              <span className="text-[0.68rem] font-bold tracking-[0.22em] text-brass uppercase block mb-3">
-                Scene 06 · Materials & Artisanal Standards
+              <span className="text-[0.68rem] font-bold tracking-[0.22em] text-muted uppercase block mb-3">
+                06 · Materials & Artisanal Standards
               </span>
               <h2
                 id="craft-heading"
                 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-charcoal tracking-tight leading-[1.05]"
               >
                 Built with materials that{" "}
-                <em className="italic text-brass font-normal">endure generations.</em>
+                <em className="italic text-walnut font-normal">endure generations.</em>
               </h2>
             </div>
 
-            <p className="max-w-md text-sm sm:text-base text-text-body font-light leading-relaxed">
+            <p className="max-w-md text-sm sm:text-base text-body font-light leading-relaxed">
               We inspect every log, fabric bolt, and hinge before construction begins. No shortcuts, no compromises on raw timber integrity.
             </p>
           </div>
@@ -72,34 +72,34 @@ export function MaterialsCraft() {
           {/* Dual Layered Visuals */}
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
             <Reveal direction="left">
-              <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden bg-charcoal shadow-xl border border-brown/15 group">
+              <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden bg-charcoal shadow-xl border border-stone-dark/15 group">
                 <Image
                   src="/images/craft.webp"
                   alt="Heaven Furniture Mart Luxury Handcrafted Showcase & Credenza"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-108"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-108 scroll-parallax-slow"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-3 inset-x-3 p-2.5 glass-charcoal text-ivory rounded-xs">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-wider text-brass">Solid Timber Showcase</p>
+                <div className="absolute bottom-3 inset-x-3 p-2.5 glass-info text-ivory rounded-xs">
+                  <p className="text-[0.62rem] font-bold uppercase tracking-wider text-walnut">Solid Timber Showcase</p>
                   <p className="text-[0.58rem] text-ivory/70">Hand-carved fluted details</p>
                 </div>
               </div>
             </Reveal>
 
             <Reveal direction="right" delay={120}>
-              <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden bg-charcoal shadow-xl border border-brown/15 group mt-8">
+              <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden bg-charcoal shadow-xl border border-stone-dark/15 group mt-12">
                 <Image
                   src="/images/bespoke-cabinet.webp"
                   alt="Heaven Furniture Mart Bespoke Entryway Cabinetry"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-108"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-108 scroll-parallax-slow"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-3 inset-x-3 p-2.5 glass-charcoal text-ivory rounded-xs">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-wider text-brass">Architectural Console</p>
+                <div className="absolute bottom-3 inset-x-3 p-2.5 glass-info text-ivory rounded-xs">
+                  <p className="text-[0.62rem] font-bold uppercase tracking-wider text-walnut">Architectural Console</p>
                   <p className="text-[0.58rem] text-ivory/70">Louvered ventilation joinery</p>
                 </div>
               </div>
@@ -112,18 +112,18 @@ export function MaterialsCraft() {
               const Icon = mat.icon;
               return (
                 <Reveal key={mat.title} delay={index * 70}>
-                  <div className="p-5 bg-white/70 hover:bg-white rounded-sm border border-brown/10 hover:border-brass/50 transition-all duration-300 shadow-sm flex gap-4 items-start group">
-                    <div className="p-2.5 rounded-full bg-brass/10 text-brass group-hover:bg-brass group-hover:text-charcoal transition-colors shrink-0 mt-0.5">
+                  <div className="p-5 glass-card rounded-sm border border-stone-dark/10 hover:border-walnut/50 transition-all duration-300 shadow-sm flex gap-4 items-start group">
+                    <div className="p-2.5 rounded-full bg-walnut/10 text-walnut group-hover:bg-walnut group-hover:text-ivory transition-colors shrink-0 mt-0.5">
                       <Icon className="size-5" />
                     </div>
                     <div>
-                      <span className="text-[0.6rem] font-bold uppercase tracking-[0.16em] text-brass block">
+                      <span className="text-[0.6rem] font-bold uppercase tracking-[0.16em] text-walnut block">
                         {mat.subtitle}
                       </span>
                       <h3 className="font-serif text-lg sm:text-xl font-semibold text-charcoal mb-1">
                         {mat.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-text-body font-light leading-relaxed">
+                      <p className="text-xs sm:text-sm text-body font-light leading-relaxed">
                         {mat.description}
                       </p>
                     </div>

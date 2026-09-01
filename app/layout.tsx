@@ -24,8 +24,8 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0E1B19",
-  colorScheme: "dark light",
+  themeColor: "#F3F0E9",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -88,7 +88,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${geistSans.variable} ${geistMono.variable} scroll-smooth`}
     >
-      <body className="bg-ivory text-charcoal font-sans min-h-screen antialiased selection:bg-brass/25 selection:text-charcoal flex flex-col">
+      <body className="bg-ivory text-charcoal font-sans min-h-screen antialiased flex flex-col">
         {children}
       </body>
     </html>

@@ -3,6 +3,8 @@ export interface Product {
   title: string;
   category: "living" | "bedroom" | "dining" | "bespoke";
   categoryLabel: string;
+  badge?: string;
+  priceTag?: string;
   image: string;
   tagline: string;
   description: string;
@@ -18,8 +20,10 @@ export const collectionsData: Product[] = [
     title: "Classic Sovereign Living Suite",
     category: "living",
     categoryLabel: "Living Room",
+    badge: "Bespoke Teak",
+    priceTag: "Inquire for Custom Quote",
     image: "/images/hero.webp",
-    tagline: "Handcrafted Solid Teak with Gold Baroque Leafing",
+    tagline: "Handcrafted Solid Teak with Gold Leafing",
     description:
       "A statement ensemble featuring ornate hand-carved solid hardwood frameworks, crowned crown-molding aesthetics, and premium high-density velvet upholstery for regal living spaces.",
     materials: ["Seasoned Teak Wood", "Italian Cut Velvet", "High-Resilience HR Foam", "Antiqued Gold Detailing"],
@@ -32,6 +36,8 @@ export const collectionsData: Product[] = [
     title: "The Royal Indigo Embroidery Suite",
     category: "living",
     categoryLabel: "Living Room",
+    badge: "Master Artisan",
+    priceTag: "Bespoke Made to Order",
     image: "/images/living-blue.webp",
     tagline: "Jewel-Toned Velvet with Hand-Embroidered Crests",
     description:
@@ -46,6 +52,8 @@ export const collectionsData: Product[] = [
     title: "The Architectural Grey Sectional",
     category: "living",
     categoryLabel: "Living Room",
+    badge: "New Arrival",
+    priceTag: "Ready in Showroom",
     image: "/images/living-grey.webp",
     tagline: "Clean Geometric Lines with Tailored Chenille Weave",
     description:
@@ -59,6 +67,8 @@ export const collectionsData: Product[] = [
     title: "The Zen Minimalist King Bed",
     category: "bedroom",
     categoryLabel: "Bedroom Collection",
+    badge: "100% Solid Teak",
+    priceTag: "Custom Dimensions Available",
     image: "/images/bedroom.webp",
     tagline: "Natural Grain Hardwood with Low-Profile Floating Base",
     description:
@@ -73,6 +83,8 @@ export const collectionsData: Product[] = [
     title: "The Regal Architectural Bedstead",
     category: "bedroom",
     categoryLabel: "Bedroom Collection",
+    badge: "Seasoned Hardwood",
+    priceTag: "Inquire for Quote",
     image: "/images/bedroom-detail.webp",
     tagline: "Deep Diamond Tufting with Fluted Timber Framing",
     description:
@@ -86,6 +98,8 @@ export const collectionsData: Product[] = [
     title: "The Imperial 8-Seater Dining Ensemble",
     category: "dining",
     categoryLabel: "Dining Collection",
+    badge: "Bespoke Teak",
+    priceTag: "6 & 8 Seater Variants",
     image: "/images/dining.webp",
     tagline: "Solid Sawn Timber Table with Ergonomic High-Back Chairs",
     description:
@@ -100,6 +114,8 @@ export const collectionsData: Product[] = [
     title: "The Contemporary Banquet Set",
     category: "dining",
     categoryLabel: "Dining Collection",
+    badge: "New Arrival",
+    priceTag: "Showroom Collection",
     image: "/images/dining-portrait.webp",
     tagline: "Sculptural Trestle Pedestal with Sculpted Backrests",
     description:
@@ -113,6 +129,8 @@ export const collectionsData: Product[] = [
     title: "The Grand Heritage Credenza & Showcase",
     category: "bespoke",
     categoryLabel: "Storage & Showcase",
+    badge: "Architectural Showcase",
+    priceTag: "Built-to-Fit Consultation",
     image: "/images/craft.webp",
     tagline: "Beveled Glass Doors with Integrated Concealed LED Illumination",
     description:
@@ -127,6 +145,8 @@ export const collectionsData: Product[] = [
     title: "The Architectural Shoe & Entryway Console",
     category: "bespoke",
     categoryLabel: "Storage & Showcase",
+    badge: "Minimalist Entryway",
+    priceTag: "Custom Quote Available",
     image: "/images/bespoke-cabinet.webp",
     tagline: "Louvered Ventilation Slats with Slim Quartz Top",
     description:

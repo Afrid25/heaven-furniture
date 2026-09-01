@@ -2,25 +2,31 @@
 
 @layer base {
   :root {
-    --color-ivory: #f7f4ee;
-    --color-ivory-light: #fcfbf8;
-    --color-ivory-dark: #ebe4d5;
-    --color-charcoal: #0e1b19;
-    --color-charcoal-dark: #070e0d;
-    --color-charcoal-surface: #142724;
-    --color-charcoal-card: #19312d;
-    --color-brown: #3a2a21;
-    --color-brown-dark: #241913;
-    --color-brass: #b99859;
-    --color-brass-light: #d8c18d;
-    --color-brass-dark: #91743a;
-    --color-champagne: #ede4d1;
-    --color-muted: #809693;
-    --color-text-body: #3c4a48;
-    --color-text-muted: #6f807e;
+    /* ─── Warm Neutral Palette ─── */
+    --color-ivory: #F3F0E9;
+    --color-ivory-light: #FAF8F4;
+    --color-stone: #E4DED3;
+    --color-stone-dark: #D4CCC0;
+    --color-charcoal: #1C1B18;
+    --color-charcoal-mid: #2A2924;
+    --color-earth: #3B3831;
+    --color-earth-light: #4A463D;
+    --color-walnut: #8A765D;
+    --color-walnut-light: #A08E74;
+    --color-walnut-dark: #6F5F49;
+    --color-olive: #68705F;
+    --color-olive-light: #7D8572;
 
+    /* Text */
+    --color-text-primary: #1C1B18;
+    --color-text-body: #3B3831;
+    --color-text-muted: #6B655A;
+    --color-text-light: #9C9487;
+
+    /* Easings */
     --ease-luxury: cubic-bezier(0.19, 1, 0.22, 1);
     --ease-editorial: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   * {
@@ -46,69 +52,148 @@
   }
 
   p, span, div, a, button, input, textarea, select {
-    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Accessible Focus Rings */
+  :focus-visible {
+    outline: 2px solid var(--color-walnut);
+    outline-offset: 3px;
   }
 }
 
-/* Custom Utilities & Luxury Styling */
+/* ─── Color Utilities ─── */
 .bg-ivory { background-color: var(--color-ivory); }
 .bg-ivory-light { background-color: var(--color-ivory-light); }
-.bg-ivory-dark { background-color: var(--color-ivory-dark); }
+.bg-stone { background-color: var(--color-stone); }
+.bg-stone-dark { background-color: var(--color-stone-dark); }
 .bg-charcoal { background-color: var(--color-charcoal); }
-.bg-charcoal-dark { background-color: var(--color-charcoal-dark); }
-.bg-charcoal-surface { background-color: var(--color-charcoal-surface); }
-.bg-charcoal-card { background-color: var(--color-charcoal-card); }
-.bg-brass { background-color: var(--color-brass); }
-.bg-brass-light { background-color: var(--color-brass-light); }
+.bg-charcoal-mid { background-color: var(--color-charcoal-mid); }
+.bg-earth { background-color: var(--color-earth); }
+.bg-earth-light { background-color: var(--color-earth-light); }
+.bg-walnut { background-color: var(--color-walnut); }
 
 .text-ivory { color: var(--color-ivory); }
+.text-ivory-light { color: var(--color-ivory-light); }
 .text-charcoal { color: var(--color-charcoal); }
-.text-brown { color: var(--color-brown); }
-.text-brass { color: var(--color-brass); }
-.text-brass-light { color: var(--color-brass-light); }
-.text-champagne { color: var(--color-champagne); }
-.text-muted-charcoal { color: var(--color-muted); }
+.text-earth { color: var(--color-earth); }
+.text-walnut { color: var(--color-walnut); }
+.text-walnut-light { color: var(--color-walnut-light); }
+.text-olive { color: var(--color-olive); }
+.text-body { color: var(--color-text-body); }
+.text-muted { color: var(--color-text-muted); }
 
-.border-brass { border-color: var(--color-brass); }
-.border-brass-light { border-color: var(--color-brass-light); }
+.border-walnut { border-color: var(--color-walnut); }
+.border-stone { border-color: var(--color-stone); }
 .border-charcoal { border-color: var(--color-charcoal); }
 .border-ivory { border-color: var(--color-ivory); }
 
-/* Glassmorphism */
-.glass-charcoal {
-  background: rgba(14, 27, 25, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(216, 193, 141, 0.12);
+/* ─── Glassmorphism System (Warm Neutral) ─── */
+
+/* Warm ivory glass — for use on dark backgrounds */
+.glass-warm {
+  background: rgba(243, 240, 233, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(228, 222, 211, 0.5);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+    0 4px 24px rgba(28, 27, 24, 0.06);
 }
 
-.glass-charcoal-card {
-  background: rgba(20, 39, 36, 0.75);
+/* Dark glass — for overlays on images/video */
+.glass-dark {
+  background: rgba(28, 27, 24, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(138, 118, 93, 0.15);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Navigation glass — subtle, wide blur */
+.glass-nav {
+  background: rgba(243, 240, 233, 0.8);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid rgba(228, 222, 211, 0.6);
+  box-shadow:
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.3),
+    0 1px 12px rgba(28, 27, 24, 0.04);
+}
+
+/* Navigation glass on dark sections */
+.glass-nav-dark {
+  background: rgba(28, 27, 24, 0.7);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid rgba(138, 118, 93, 0.12);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    0 1px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Glossy CTA — polished surface with internal highlight */
+.glass-cta {
+  background: linear-gradient(
+    180deg,
+    rgba(138, 118, 93, 0.95) 0%,
+    rgba(111, 95, 73, 0.95) 100%
+  );
+  border: 1px solid rgba(160, 142, 116, 0.4);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(28, 27, 24, 0.15),
+    0 0 0 0 rgba(138, 118, 93, 0);
+  transition: box-shadow 0.35s var(--ease-smooth), transform 0.35s var(--ease-smooth);
+}
+
+.glass-cta:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(28, 27, 24, 0.18),
+    0 0 0 4px rgba(138, 118, 93, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Glass info card — for product overlays on images */
+.glass-info {
+  background: rgba(28, 27, 24, 0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(216, 193, 141, 0.15);
+  border: 1px solid rgba(138, 118, 93, 0.2);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-.glass-ivory {
-  background: rgba(247, 244, 238, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(58, 42, 33, 0.08);
+/* Glass card — subtle elevation on ivory backgrounds */
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(228, 222, 211, 0.7);
+  box-shadow:
+    0 1px 3px rgba(28, 27, 24, 0.04),
+    0 4px 16px rgba(28, 27, 24, 0.02);
+  transition: box-shadow 0.35s var(--ease-smooth), border-color 0.35s var(--ease-smooth);
 }
 
-.glass-brass {
-  background: linear-gradient(135deg, rgba(185, 152, 89, 0.15) 0%, rgba(216, 193, 141, 0.05) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(216, 193, 141, 0.35);
+.glass-card:hover {
+  border-color: rgba(138, 118, 93, 0.3);
+  box-shadow:
+    0 2px 8px rgba(28, 27, 24, 0.06),
+    0 8px 32px rgba(28, 27, 24, 0.04);
 }
 
-/* Luxury Grain Overlay */
+/* ─── Subtle Texture Overlay ─── */
 .luxury-noise {
-  background-image: radial-gradient(rgba(216, 193, 141, 0.04) 1px, transparent 0);
+  background-image: radial-gradient(rgba(138, 118, 93, 0.03) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
-/* Animations & Transitions */
+/* ─── IntersectionObserver Reveal Animations ─── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -125,6 +210,7 @@
   opacity: 0;
   transform: translateX(-32px);
   transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
+  will-change: opacity, transform;
 }
 
 .reveal-left.is-visible {
@@ -136,6 +222,7 @@
   opacity: 0;
   transform: translateX(32px);
   transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
+  will-change: opacity, transform;
 }
 
 .reveal-right.is-visible {
@@ -143,18 +230,162 @@
   transform: translateX(0);
 }
 
-/* Hotspot Pulse */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1s var(--ease-luxury), transform 1.2s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── CSS Scroll-Driven Parallax (Progressive Enhancement) ─── */
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
+  .scroll-parallax-bg {
+    animation: parallax-shift linear both;
+    animation-timeline: view();
+    animation-range: entry 10% exit 90%;
+  }
+
+  .scroll-parallax-fg {
+    animation: parallax-float linear both;
+    animation-timeline: view();
+    animation-range: entry 20% exit 80%;
+  }
+
+  .scroll-parallax-slow {
+    animation: parallax-slow linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes parallax-shift {
+    from { transform: translateY(-24px) scale(1.04); }
+    to { transform: translateY(24px) scale(1.0); }
+  }
+
+  @keyframes parallax-float {
+    from { transform: translateY(18px); }
+    to { transform: translateY(-18px); }
+  }
+
+  @keyframes parallax-slow {
+    from { transform: translateY(-12px); }
+    to { transform: translateY(12px); }
+  }
+
+  .scroll-text-reveal {
+    animation: clip-text-scroll linear both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 60%;
+  }
+
+  @keyframes clip-text-scroll {
+    from {
+      opacity: 0;
+      clip-path: inset(0 0 100% 0);
+    }
+    to {
+      opacity: 1;
+      clip-path: inset(0 0 0% 0);
+    }
+  }
+}
+
+/* ─── Hero Entrance Animations ─── */
+@keyframes hero-bg-reveal {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-text-clip {
+  from {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0% 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-float-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-bg-entrance {
+  animation: hero-bg-reveal 1.4s var(--ease-editorial) both;
+}
+
+.hero-text-entrance {
+  animation: hero-text-clip 0.9s var(--ease-luxury) both;
+}
+
+.hero-entrance {
+  animation: hero-fade-up 0.85s var(--ease-luxury) both;
+}
+
+.hero-float {
+  animation: hero-float-in 0.7s var(--ease-luxury) both;
+}
+
+/* ─── Image Reveal ─── */
+@keyframes image-mask-reveal {
+  from {
+    clip-path: inset(8% 8% 8% 8%);
+    opacity: 0.6;
+  }
+  to {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+  }
+}
+
+.image-reveal {
+  animation: image-mask-reveal 1s var(--ease-editorial) both;
+}
+
+/* ─── Hotspot Pulse (Walnut) ─── */
 @keyframes hotspot-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(216, 193, 141, 0.7);
+    box-shadow: 0 0 0 0 rgba(138, 118, 93, 0.6);
     transform: scale(0.95);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(216, 193, 141, 0);
+    box-shadow: 0 0 0 12px rgba(138, 118, 93, 0);
     transform: scale(1.05);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(216, 193, 141, 0);
+    box-shadow: 0 0 0 0 rgba(138, 118, 93, 0);
     transform: scale(0.95);
   }
 }
@@ -163,64 +394,69 @@
   animation: hotspot-pulse 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* Subtle Shimmer for Gold Accents */
-@keyframes gold-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.shimmer-gold {
-  background: linear-gradient(90deg, #b99859 0%, #f6e8cc 50%, #b99859 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: gold-shimmer 6s linear infinite;
-}
-
-/* Scroll cues */
+/* ─── Scroll Cue ─── */
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); opacity: 0.3; }
-  50% { transform: translateY(8px); opacity: 1; }
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(6px); opacity: 1; }
 }
 
 .animate-scroll-cue {
-  animation: scroll-bounce 2s ease-in-out infinite;
+  animation: scroll-bounce 2.2s ease-in-out infinite;
 }
 
-/* Card Tilt & Perspective */
-.perspective-1000 {
-  perspective: 1000px;
+/* ─── Card Hover ─── */
+.card-hover {
+  transition: transform 0.5s var(--ease-luxury), box-shadow 0.5s var(--ease-luxury);
 }
 
-.card-tilt-wrap {
-  transition: transform 0.6s var(--ease-luxury), box-shadow 0.6s var(--ease-luxury);
+.card-hover:hover {
+  transform: translateY(-3px);
 }
 
-.card-tilt-wrap:hover {
-  transform: translateY(-4px);
-}
-
-/* Custom Scrollbar */
+/* ─── Custom Scrollbar (Warm) ─── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0e1b19;
+  background: var(--color-ivory);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2b4542;
+  background: var(--color-stone-dark);
   border-radius: 4px;
-  border: 2px solid #0e1b19;
+  border: 2px solid var(--color-ivory);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b99859;
+  background: var(--color-walnut);
 }
 
-/* Reduced Motion Overrides */
+/* ─── Selection ─── */
+::selection {
+  background-color: rgba(138, 118, 93, 0.2);
+  color: var(--color-charcoal);
+}
+
+/* ─── Mobile Horizontal Scroll Rail ─── */
+.scroll-rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroll-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-rail > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* ─── Reduced Motion Overrides ─── */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -233,8 +469,13 @@
     scroll-behavior: auto !important;
   }
 
-  .reveal, .reveal-left, .reveal-right {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale,
+  .scroll-parallax-bg, .scroll-parallax-fg, .scroll-parallax-slow,
+  .hero-bg-entrance, .hero-text-entrance, .hero-entrance, .hero-float,
+  .image-reveal, .scroll-text-reveal {
     opacity: 1 !important;
     transform: none !important;
+    clip-path: none !important;
+    animation: none !important;
   }
 }

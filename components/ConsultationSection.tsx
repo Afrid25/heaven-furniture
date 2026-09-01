@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { site, getWhatsAppUrl } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
-import { Phone, Mail, MessageSquare, MapPin, Send, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { Phone, Mail, MessageSquare, MapPin, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
 
 export function ConsultationSection() {
   const [name, setName] = useState("");
@@ -31,24 +31,24 @@ export function ConsultationSection() {
     <section
       id="consultation"
       aria-labelledby="consultation-heading"
-      className="relative py-24 sm:py-32 bg-ivory text-charcoal overflow-hidden luxury-noise border-b border-brown/10"
+      className="relative py-24 sm:py-32 bg-ivory overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         
         {/* Top Header */}
         <Reveal>
           <div className="max-w-3xl mb-12">
-            <span className="text-[0.68rem] font-bold tracking-[0.22em] text-brass uppercase block mb-3">
-              Scene 08 · Direct Consultation & Contact
+            <span className="text-[0.65rem] font-semibold tracking-[0.22em] text-muted uppercase block mb-3">
+              09
             </span>
             <h2
               id="consultation-heading"
               className="font-serif text-3xl sm:text-5xl lg:text-6xl text-charcoal tracking-tight leading-[1.05]"
             >
-              Let’s design your{" "}
-              <em className="italic text-brass font-normal">dream space.</em>
+              Let&rsquo;s design your{" "}
+              <em className="italic text-walnut font-normal">dream space.</em>
             </h2>
-            <p className="mt-4 text-sm sm:text-base text-text-body font-light leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-body font-light leading-relaxed">
               Whether you require a single signature statement sofa or a comprehensive villa interior fit-out, our design specialists are ready to assist you.
             </p>
           </div>
@@ -60,22 +60,22 @@ export function ConsultationSection() {
           {/* Interactive Consultation Form */}
           <div className="lg:col-span-7">
             <Reveal direction="left">
-              <div className="p-6 sm:p-10 bg-white rounded-sm border border-brown/15 shadow-xl">
+              <div className="p-6 sm:p-10 bg-ivory-light rounded-sm border border-stone shadow-sm">
                 {submitted ? (
                   <div className="text-center py-10 flex flex-col items-center gap-4">
-                    <div className="p-3 bg-brass/10 text-brass rounded-full">
+                    <div className="p-3 bg-walnut/10 text-walnut rounded-full">
                       <CheckCircle2 className="size-10" />
                     </div>
                     <h3 className="font-serif text-2xl text-charcoal">
                       Thank You, {name || "Friend"}!
                     </h3>
-                    <p className="text-sm text-text-muted max-w-md">
+                    <p className="text-sm text-muted max-w-md">
                       Your consultation inquiry has been transferred to our WhatsApp concierge. Our team will review your specifications and contact you shortly.
                     </p>
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
-                      className="mt-4 text-xs font-bold uppercase tracking-wider text-brass hover:underline"
+                      className="mt-4 text-xs font-bold uppercase tracking-wider text-walnut hover:underline cursor-pointer"
                     >
                       Submit Another Inquiry
                     </button>
@@ -86,7 +86,7 @@ export function ConsultationSection() {
                       <h3 className="font-serif text-2xl text-charcoal mb-1">
                         Book a Complimentary Consultation
                       </h3>
-                      <p className="text-xs text-text-muted">
+                      <p className="text-xs text-muted">
                         Connect directly with our master furniture artisans and interior stylists.
                       </p>
                     </div>
@@ -102,7 +102,7 @@ export function ConsultationSection() {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="e.g. Tanvir Ahmed"
-                          className="w-full px-3.5 py-3 text-sm bg-ivory/50 border border-brown/20 rounded-xs focus:outline-none focus:border-brass text-charcoal placeholder:text-charcoal/40"
+                          className="w-full px-3.5 py-3 text-sm bg-stone/40 border border-stone-dark/40 rounded-sm focus:outline-none focus:border-walnut text-charcoal placeholder:text-charcoal/35 transition-colors"
                         />
                       </div>
 
@@ -116,7 +116,7 @@ export function ConsultationSection() {
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           placeholder="+880 1..."
-                          className="w-full px-3.5 py-3 text-sm bg-ivory/50 border border-brown/20 rounded-xs focus:outline-none focus:border-brass text-charcoal placeholder:text-charcoal/40"
+                          className="w-full px-3.5 py-3 text-sm bg-stone/40 border border-stone-dark/40 rounded-sm focus:outline-none focus:border-walnut text-charcoal placeholder:text-charcoal/35 transition-colors"
                         />
                       </div>
                     </div>
@@ -128,13 +128,13 @@ export function ConsultationSection() {
                       <select
                         value={room}
                         onChange={(e) => setRoom(e.target.value)}
-                        className="w-full px-3.5 py-3 text-sm bg-ivory/50 border border-brown/20 rounded-xs focus:outline-none focus:border-brass text-charcoal"
+                        className="w-full px-3.5 py-3 text-sm bg-stone/40 border border-stone-dark/40 rounded-sm focus:outline-none focus:border-walnut text-charcoal transition-colors"
                       >
-                        <option value="Living Room Suite">Living Room Suite & Sofas</option>
+                        <option value="Living Room Suite">Living Room Suite &amp; Sofas</option>
                         <option value="Master Bedroom Sanctuary">Master Bedroom Sanctuary</option>
                         <option value="Dining Room Ensemble">Dining Room Ensemble</option>
-                        <option value="Bespoke Showcase & Consoles">Bespoke Showcase & Consoles</option>
-                        <option value="Executive Office & Study">Executive Office & Study</option>
+                        <option value="Bespoke Showcase & Consoles">Bespoke Showcase &amp; Consoles</option>
+                        <option value="Executive Office & Study">Executive Office &amp; Study</option>
                         <option value="Full Villa / Penthouse Project">Full Villa / Penthouse Project</option>
                       </select>
                     </div>
@@ -148,25 +148,25 @@ export function ConsultationSection() {
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
                         placeholder="Tell us about your room dimensions, desired wood finish, or styling requirements..."
-                        className="w-full px-3.5 py-3 text-sm bg-ivory/50 border border-brown/20 rounded-xs focus:outline-none focus:border-brass text-charcoal placeholder:text-charcoal/40 resize-none"
+                        className="w-full px-3.5 py-3 text-sm bg-stone/40 border border-stone-dark/40 rounded-sm focus:outline-none focus:border-walnut text-charcoal placeholder:text-charcoal/35 resize-none transition-colors"
                       />
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3 pt-3">
                       <button
                         type="submit"
-                        className="flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 bg-brass hover:bg-brass-light text-charcoal font-bold text-xs uppercase tracking-[0.14em] transition-all shadow-md shadow-brass/20 cursor-pointer"
+                        className="flex-1 inline-flex items-center justify-center gap-2 py-4 px-6 bg-charcoal hover:bg-earth text-ivory font-bold text-xs uppercase tracking-[0.14em] transition-all shadow-sm cursor-pointer rounded-sm"
                       >
                         <MessageSquare className="size-4" />
-                        <span>Send via WhatsApp Concierge</span>
+                        <span>Send via WhatsApp</span>
                       </button>
 
                       <button
                         type="button"
                         onClick={handleEmailSubmit}
-                        className="inline-flex items-center justify-center gap-2 py-4 px-5 bg-ivory hover:bg-white text-charcoal font-semibold text-xs uppercase tracking-[0.12em] border border-brown/20 transition-all cursor-pointer"
+                        className="inline-flex items-center justify-center gap-2 py-4 px-5 bg-stone hover:bg-stone-dark/40 text-charcoal font-semibold text-xs uppercase tracking-[0.12em] border border-stone-dark/40 transition-all cursor-pointer rounded-sm"
                       >
-                        <Mail className="size-4 text-brass" />
+                        <Mail className="size-4 text-walnut" />
                         <span>Email Us</span>
                       </button>
                     </div>
@@ -176,35 +176,35 @@ export function ConsultationSection() {
             </Reveal>
           </div>
 
-          {/* Direct Contact Cards & Phone Line */}
+          {/* Direct Contact Card */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <Reveal direction="right" delay={100}>
-              <div className="p-6 sm:p-8 bg-charcoal text-ivory rounded-sm border border-brass/30 shadow-xl flex flex-col gap-6">
+              <div className="p-6 sm:p-8 bg-charcoal text-ivory rounded-sm shadow-lg flex flex-col gap-6">
                 
                 <div>
-                  <span className="text-[0.65rem] font-bold tracking-[0.2em] text-brass uppercase block mb-1">
+                  <span className="text-[0.65rem] font-bold tracking-[0.2em] text-walnut uppercase block mb-1">
                     Direct Contact Line
                   </span>
                   <h3 className="font-serif text-2xl text-ivory">
                     Call Our Showroom Directly
                   </h3>
-                  <p className="text-xs text-ivory/70 mt-1">
+                  <p className="text-xs text-ivory/60 mt-1">
                     Speak with Managing Director MD Abul Kalam Bhuiyan or our senior design team.
                   </p>
                 </div>
 
-                <div className="p-4 bg-white/5 border border-white/10 rounded-xs flex items-center justify-between">
+                <div className="p-4 bg-white/5 border border-white/10 rounded-sm flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-full bg-brass/20 text-brass">
+                    <div className="p-2.5 rounded-full bg-walnut/15 text-walnut">
                       <Phone className="size-5" />
                     </div>
                     <div>
-                      <p className="text-[0.65rem] font-bold uppercase tracking-wider text-brass">
+                      <p className="text-[0.65rem] font-bold uppercase tracking-wider text-walnut">
                         Direct Showroom Phone
                       </p>
                       <a
                         href={site.phoneHref}
-                        className="font-serif text-xl sm:text-2xl text-ivory hover:text-brass transition-colors font-semibold"
+                        className="font-serif text-xl sm:text-2xl text-ivory hover:text-walnut-light transition-colors font-semibold"
                       >
                         {site.phone}
                       </a>
@@ -212,25 +212,25 @@ export function ConsultationSection() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs text-ivory/80">
-                  <Mail className="size-4 text-brass shrink-0" />
-                  <a href={site.emailConsult} className="hover:text-brass transition-colors">
+                <div className="flex items-center gap-3 text-xs text-ivory/70">
+                  <Mail className="size-4 text-walnut shrink-0" />
+                  <a href={site.emailConsult} className="hover:text-walnut-light transition-colors">
                     {site.email}
                   </a>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs text-ivory/80">
-                  <MapPin className="size-4 text-brass shrink-0" />
+                <div className="flex items-center gap-3 text-xs text-ivory/70">
+                  <MapPin className="size-4 text-walnut shrink-0" />
                   <span>{site.fullAddress}</span>
                 </div>
 
                 <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-[0.7rem] text-brass font-medium">
+                  <div className="flex items-center gap-2 text-[0.7rem] text-walnut font-medium">
                     <Sparkles className="size-3.5" />
-                    <span>Free Space Measurement & Consultation</span>
+                    <span>Free Space Measurement &amp; Consultation</span>
                   </div>
-                  <div className="flex items-center gap-2 text-[0.7rem] text-ivory/70">
-                    <ShieldCheck className="size-3.5 text-brass" />
+                  <div className="flex items-center gap-2 text-[0.7rem] text-ivory/60">
+                    <ShieldCheck className="size-3.5 text-walnut" />
                     <span>10-Year Anti-Borer Hardwood Warranty</span>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ interface RevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  direction?: "up" | "left" | "right";
+  direction?: "up" | "left" | "right" | "scale";
 }
 
 export function Reveal({
@@ -21,12 +21,6 @@ export function Reveal({
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      setVisible(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -47,6 +41,8 @@ export function Reveal({
       ? "reveal-left"
       : direction === "right"
       ? "reveal-right"
+      : direction === "scale"
+      ? "reveal-scale"
       : "reveal";
 
   return (
