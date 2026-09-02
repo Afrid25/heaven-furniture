@@ -2,19 +2,16 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { navLinks, site } from "@/lib/site";
-import { Phone, MessageSquare, MapPin, Menu, X, ArrowUpRight } from "lucide-react";
+import { site } from "@/lib/site";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
-      // Check if we're past the hero (hero is 100vh)
-      setIsHeroVisible(window.scrollY < window.innerHeight * 0.85);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -37,209 +34,146 @@ export function Navbar() {
     };
   }, [open]);
 
-  // Over hero: transparent with light text. After hero: warm glass with dark text.
-  const isOverHero = isHeroVisible && !scrolled;
+  // Concise navigation items for compact header fit
+  const cleanNavLinks = [
+    { href: "#collections", label: "Collections" },
+    { href: "#signature", label: "Signature" },
+    { href: "#bespoke", label: "Bespoke" },
+    { href: "#showroom", label: "Showroom" },
+  ];
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 w-full max-w-[100vw] overflow-x-hidden ${
-          open
-            ? "bg-transparent py-4 sm:py-5"
-            : isOverHero
-            ? "bg-gradient-to-b from-[rgba(28,27,24,0.6)] via-[rgba(28,27,24,0.2)] to-transparent py-3.5 sm:py-5"
-            : "glass-nav py-3.5 shadow-sm"
+        className={`fixed z-50 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+          scrolled
+            ? "top-3 sm:top-4 left-1/2 -translate-x-1/2 w-full lg:w-auto px-4 sm:px-6 max-w-7xl"
+            : "top-0 left-0 right-0 w-full px-4 sm:px-8 py-4 sm:py-5"
         }`}
       >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-4 focus:z-60 focus:bg-walnut focus:px-4 focus:py-2 focus:text-ivory font-semibold text-xs uppercase tracking-widest"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-4 focus:z-60 focus:bg-gold-brass focus:px-4 focus:py-2 focus:text-ivory font-semibold text-xs uppercase tracking-widest rounded-sm"
         >
-          Skip to main showroom content
+          Skip to main content
         </a>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-2 sm:gap-4">
-          {/* Brand Logo */}
+        {/* Floating Capsule Container */}
+        <div
+          className={`flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${
+            scrolled
+              ? "glass-nav-pill rounded-full p-2 px-4 sm:px-6 shadow-[0_22px_50px_rgba(0,0,0,0.75)] border border-[#C5A059]/40 gap-4 sm:gap-6 lg:gap-8 w-full lg:w-fit lg:min-w-[800px]"
+              : "glass-nav-top rounded-2xl px-5 py-3 sm:px-8 sm:py-4 border-b border-[#C5A059]/20 w-full gap-4 sm:gap-6"
+          }`}
+        >
+          {/* Logo with Glossy Background Cover */}
           <a
             href="#top"
-            className="flex items-center gap-2.5 sm:gap-3 group shrink-0 focus-visible:ring-2 focus-visible:ring-walnut"
-            aria-label={`${site.name} — Luxury Bespoke Furniture Showroom`}
+            className="flex items-center group shrink-0 focus-visible:ring-2 focus-visible:ring-gold-brass rounded-full"
+            aria-label={`${site.name} — Luxury Bespoke Furniture`}
           >
-            <div className={`relative py-1 px-2 sm:py-1.5 sm:px-2.5 rounded-md transition-all duration-300 ${
-              isOverHero
-                ? "bg-white/5 backdrop-blur-sm border border-white/10"
-                : "bg-stone/40 border border-stone-dark/30"
-            }`}>
+            <div className="glass-logo-badge relative py-1 px-2.5 sm:py-1.5 sm:px-3.5 rounded-full flex items-center justify-center transition-all duration-300">
               <Image
                 src="/images/logo.png"
                 alt={site.name}
-                width={180}
-                height={60}
-                className={`h-6 sm:h-8 w-auto object-contain transition-all duration-300 ${
-                  isOverHero ? "brightness-200 invert-0" : ""
-                }`}
+                width={130}
+                height={40}
+                className="h-4.5 sm:h-5.5 w-auto object-contain brightness-125"
                 priority
               />
             </div>
-            <div className={`hidden xl:flex flex-col border-l pl-3 transition-colors duration-300 ${
-              isOverHero ? "border-white/30" : "border-stone-dark/30"
-            }`}>
-              <span className={`text-[0.62rem] font-bold tracking-[0.22em] uppercase transition-colors duration-300 ${
-                isOverHero ? "text-white" : "text-walnut"
-              }`}>
-                Agrabad · Chattogram
-              </span>
-              <span className={`text-[0.55rem] tracking-wider transition-colors duration-300 ${
-                isOverHero ? "text-slate-200" : "text-muted"
-              }`}>
-                Bespoke Luxury Showroom
-              </span>
-            </div>
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation Links */}
           <nav
-            className="hidden lg:flex items-center gap-5 xl:gap-8 shrink-0"
-            aria-label="Primary Showroom Navigation"
+            className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0"
+            aria-label="Primary Navigation"
           >
-            {navLinks.map((link) => (
+            {cleanNavLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative py-1.5 text-[0.68rem] font-semibold tracking-[0.14em] xl:tracking-[0.16em] uppercase whitespace-nowrap transition-colors duration-300 group ${
-                  isOverHero
-                    ? "text-white hover:text-white"
-                    : "text-charcoal/70 hover:text-charcoal"
-                }`}
+                className="relative py-1 text-[0.68rem] xl:text-[0.72rem] font-bold tracking-[0.14em] xl:tracking-[0.16em] uppercase text-gold-brass hover:text-gold-brass-light transition-colors duration-300 group whitespace-nowrap drop-shadow-sm"
               >
-                {link.label}
-                <span className={`absolute bottom-0 left-0 w-0 h-[1.5px] transition-all duration-300 group-hover:w-full ${
-                  isOverHero ? "bg-white" : "bg-walnut"
-                }`} />
+                <span>{link.label}</span>
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-brass-light transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>
 
-          {/* Right Action Cluster */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <a
-              href={site.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`hidden md:inline-flex items-center gap-2 px-3 py-2 sm:px-3.5 sm:py-2.5 text-[0.65rem] sm:text-[0.68rem] font-semibold tracking-[0.12em] uppercase whitespace-nowrap transition-all duration-300 rounded-sm ${
-                isOverHero
-                  ? "text-white hover:text-white bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/50"
-                  : "text-charcoal/70 hover:text-charcoal bg-stone/40 hover:bg-stone border border-stone-dark/30 hover:border-walnut/40"
-              }`}
-              aria-label="Chat directly on WhatsApp with our concierge"
-            >
-              <MessageSquare className={`size-3.5 ${isOverHero ? "text-white" : "text-walnut"}`} />
-              <span>WhatsApp</span>
-            </a>
-
+          {/* Right Action Button CTA */}
+          <div className="flex items-center gap-2 shrink-0">
             <a
               href="#consultation"
-              className={`hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 text-[0.65rem] sm:text-[0.68rem] font-bold tracking-[0.14em] uppercase whitespace-nowrap transition-all duration-300 rounded-sm ${
-                isOverHero
-                  ? "glass-cta text-white"
-                  : "bg-charcoal text-ivory hover:bg-earth"
-              }`}
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 text-[0.66rem] sm:text-[0.7rem] font-bold tracking-[0.14em] uppercase text-ivory glass-cta rounded-full transition-all duration-300 whitespace-nowrap shadow-md shrink-0"
             >
-              <span>Book Consultation</span>
-              <ArrowUpRight className="size-3.5" />
+              <span>Consultation</span>
+              <ArrowUpRight className="size-3.5 text-gold-brass-light shrink-0" />
             </a>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Button */}
             <button
               type="button"
-              className={`lg:hidden inline-flex items-center justify-center p-2.5 sm:p-3 transition-colors rounded-sm shrink-0 focus-visible:ring-2 focus-visible:ring-walnut ${
-                isOverHero
-                  ? "text-white hover:text-white bg-white/10 border border-white/30"
-                  : "text-charcoal hover:text-walnut bg-stone/40 border border-stone-dark/30"
-              }`}
+              className="lg:hidden inline-flex items-center justify-center p-2 text-gold-brass hover:text-gold-brass-light glass-logo-badge rounded-full transition-colors shrink-0"
               aria-expanded={open}
               aria-controls="mobile-navigation-drawer"
-              aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((prev) => !prev)}
             >
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+              {open ? <X className="size-4.5" /> : <Menu className="size-4.5" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* ─── Fullscreen Mobile Drawer ─── */}
+      {/* ─── Mobile Fullscreen Drawer ─── */}
       <div
         id="mobile-navigation-drawer"
-        className={`fixed inset-0 z-40 lg:hidden flex flex-col justify-between px-6 pt-24 pb-8 transition-all duration-500 ${
+        className={`fixed inset-0 z-40 lg:hidden flex flex-col justify-between px-6 pt-28 pb-8 transition-all duration-500 ${
           open
             ? "opacity-100 pointer-events-auto translate-y-0"
             : "opacity-0 pointer-events-none -translate-y-4"
         }`}
         style={{
-          background: "rgba(243, 240, 233, 0.95)",
-          backdropFilter: "blur(40px)",
-          WebkitBackdropFilter: "blur(40px)",
+          background: "rgba(19, 34, 37, 0.96)",
+          backdropFilter: "blur(32px)",
+          WebkitBackdropFilter: "blur(32px)",
         }}
         aria-hidden={!open}
       >
-        <div className="flex flex-col gap-5 my-auto">
-          <div className="border-b border-stone-dark/30 pb-3">
-            <span className="text-[0.65rem] font-semibold tracking-[0.2em] text-walnut uppercase">
-              Showroom Index
+        <div className="flex flex-col gap-6 my-auto max-w-sm mx-auto w-full">
+          <div className="border-b border-[#C5A059]/30 pb-3">
+            <span className="text-[0.68rem] font-bold tracking-[0.22em] text-gold-brass uppercase block">
+              Navigation
             </span>
           </div>
 
-          <nav className="flex flex-col gap-3" aria-label="Mobile Navigation">
-            {navLinks.map((link, index) => (
+          <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
+            {cleanNavLinks.map((link, index) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`font-serif text-2xl sm:text-3xl tracking-tight text-charcoal hover:text-walnut transition-all duration-300 flex items-center justify-between ${
+                className={`font-serif text-2xl tracking-tight text-gold-brass hover:text-gold-brass-light transition-all duration-300 flex items-center justify-between font-bold ${
                   open ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
                 }`}
                 style={{ transitionDelay: open ? `${80 + index * 45}ms` : "0ms" }}
               >
                 <span>{link.label}</span>
-                <span className="text-xs font-mono text-walnut/50">0{index + 1}</span>
               </a>
             ))}
           </nav>
         </div>
 
-        {/* Mobile Contact Footer */}
-        <div className="flex flex-col gap-3.5 pt-6 border-t border-stone-dark/30">
-          <div className="flex items-center gap-2 text-xs text-body">
-            <MapPin className="size-4 text-walnut shrink-0" />
-            <span>{site.fullAddress}</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs text-body">
-            <Phone className="size-4 text-walnut shrink-0" />
-            <a href={site.phoneHref} className="hover:text-walnut transition-colors">
-              {site.phone}
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 mt-2">
-            <a
-              href={site.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-2 p-3 text-[0.7rem] font-semibold uppercase tracking-wider bg-stone text-charcoal border border-stone-dark/30 rounded-sm"
-            >
-              <MessageSquare className="size-4 text-walnut" />
-              WhatsApp
-            </a>
-            <a
-              href="#consultation"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-2 p-3 text-[0.7rem] font-bold uppercase tracking-wider bg-charcoal text-ivory rounded-sm"
-            >
-              Consultation
-            </a>
-          </div>
+        <div className="pt-6 border-t border-[#C5A059]/20 max-w-sm mx-auto w-full flex flex-col gap-3">
+          <a
+            href="#consultation"
+            onClick={() => setOpen(false)}
+            className="flex items-center justify-center gap-2 p-3.5 text-xs font-bold uppercase tracking-widest text-ivory glass-cta rounded-full text-center"
+          >
+            <span>Book Consultation</span>
+            <ArrowUpRight className="size-4" />
+          </a>
         </div>
       </div>
     </>

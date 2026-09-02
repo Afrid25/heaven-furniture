@@ -5,17 +5,17 @@ type Variant = "primary" | "secondary" | "walnut" | "ghost" | "ivory" | "glass";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-charcoal text-ivory border border-charcoal hover:bg-earth transition-colors shadow-sm",
+    "glass-cta glossy-reflection text-charcoal-teal font-bold shadow-md hover:shadow-xl",
   secondary:
-    "bg-stone text-charcoal border border-stone-dark/50 hover:bg-stone-dark/30 transition-colors",
+    "glass-btn-teal glossy-reflection text-ivory font-bold shadow-md hover:shadow-xl",
   walnut:
-    "glass-cta text-ivory font-bold",
+    "glass-cta glossy-reflection text-charcoal-teal font-bold shadow-md hover:shadow-xl",
   ghost:
-    "bg-transparent text-charcoal border border-charcoal/20 hover:border-walnut hover:text-walnut transition-colors",
+    "glass-btn-teal glossy-reflection text-ivory font-bold shadow-md hover:shadow-xl",
   ivory:
-    "bg-ivory text-charcoal hover:bg-stone border border-stone transition-colors",
+    "glass-warm glossy-reflection text-deep-brown font-bold shadow-md hover:shadow-xl",
   glass:
-    "glass-warm text-charcoal hover:border-walnut/40 transition-all",
+    "glass-btn-teal glossy-reflection text-ivory font-bold shadow-md hover:shadow-xl",
 };
 
 interface ButtonProps {
@@ -41,7 +41,7 @@ export function Button({
   type = "button",
   ariaLabel,
 }: ButtonProps) {
-  const baseClasses = `group inline-flex min-h-12 items-center justify-center gap-3 px-6 py-3.5 text-[0.72rem] font-semibold tracking-[0.14em] uppercase transition-all duration-300 ${variants[variant]} ${className}`;
+  const baseClasses = `group inline-flex min-h-12 items-center justify-center gap-3 px-7 py-3.5 text-[0.72rem] font-bold tracking-[0.16em] uppercase rounded-full transition-all duration-300 ${variants[variant]} ${className}`;
 
   if (href) {
     return (

@@ -131,7 +131,6 @@ export function Hero() {
               href="#showroom"
               variant="ghost"
               arrowDirection="up-right"
-              className="!text-white !border-white/40 bg-white/5 hover:!bg-white/15 hover:!border-white/70 backdrop-blur-sm"
             >
               Visit Showroom
             </Button>
@@ -142,7 +141,7 @@ export function Hero() {
       {/* ─── Layer 4: Bottom Info Strip ─── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-6 sm:pb-8">
         <div
-          className="hero-float flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4 sm:py-5 px-5 sm:px-7 glass-dark rounded-sm text-xs sm:text-[0.7rem] text-white"
+          className="hero-float flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-4 sm:py-5 px-5 sm:px-7 glass-dark glossy-reflection rounded-sm text-xs sm:text-[0.7rem] text-white"
           style={{ animationDelay: "1.15s" }}
         >
           <div className="flex items-center gap-6 sm:gap-8 flex-wrap">

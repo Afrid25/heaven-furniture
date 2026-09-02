@@ -40,100 +40,106 @@ export function MaterialsCraft() {
     <section
       id="craftsmanship"
       aria-labelledby="craft-heading"
-      className="relative py-24 sm:py-32 bg-ivory text-charcoal overflow-hidden border-b border-stone-dark/10"
+      className="relative py-20 sm:py-28 bg-charcoal-teal text-gold-brass overflow-hidden border-b border-gold-brass/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header */}
         <Reveal>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-12 border-b border-stone-dark/15">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-gold-brass/25">
             <div>
-              <span className="text-[0.68rem] font-bold tracking-[0.22em] text-muted uppercase block mb-3">
-                06 · Materials & Artisanal Standards
+              <span className="text-[0.68rem] font-bold font-sans tracking-[0.22em] text-gold-brass uppercase block mb-3">
+                Materials &amp; Artisanal Standards
               </span>
               <h2
                 id="craft-heading"
-                className="font-serif text-3xl sm:text-5xl lg:text-6xl text-charcoal tracking-tight leading-[1.05]"
+                className="font-serif text-3xl sm:text-5xl lg:text-6xl text-gold-brass tracking-tight leading-[1.05]"
               >
                 Built with materials that{" "}
-                <em className="italic text-walnut font-normal">endure generations.</em>
+                <em className="italic text-gold-brass-light font-normal">endure generations.</em>
               </h2>
             </div>
 
-            <p className="max-w-md text-sm sm:text-base text-body font-light leading-relaxed">
+            <p className="max-w-md text-sm sm:text-base text-gold-brass-light/85 font-sans font-light leading-relaxed">
               We inspect every log, fabric bolt, and hinge before construction begins. No shortcuts, no compromises on raw timber integrity.
             </p>
           </div>
         </Reveal>
 
-        {/* Visual Pairings and Feature Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center py-16">
-          
-          {/* Dual Layered Visuals */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-            <Reveal direction="left">
-              <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden bg-charcoal shadow-xl border border-stone-dark/15 group">
-                <Image
-                  src="/images/craft.webp"
-                  alt="Heaven Furniture Mart Luxury Handcrafted Showcase & Credenza"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-108 scroll-parallax-slow"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-3 inset-x-3 p-2.5 glass-info text-ivory rounded-xs">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-wider text-walnut">Solid Timber Showcase</p>
-                  <p className="text-[0.58rem] text-ivory/70">Hand-carved fluted details</p>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal direction="right" delay={120}>
-              <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden bg-charcoal shadow-xl border border-stone-dark/15 group mt-12">
-                <Image
-                  src="/images/bespoke-cabinet.webp"
-                  alt="Heaven Furniture Mart Bespoke Entryway Cabinetry"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-108 scroll-parallax-slow"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-3 inset-x-3 p-2.5 glass-info text-ivory rounded-xs">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-wider text-walnut">Architectural Console</p>
-                  <p className="text-[0.58rem] text-ivory/70">Louvered ventilation joinery</p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Detailed Materials Checklist */}
-          <div className="lg:col-span-6 flex flex-col gap-6">
-            {materials.map((mat, index) => {
-              const Icon = mat.icon;
-              return (
-                <Reveal key={mat.title} delay={index * 70}>
-                  <div className="p-5 glass-card rounded-sm border border-stone-dark/10 hover:border-walnut/50 transition-all duration-300 shadow-sm flex gap-4 items-start group">
-                    <div className="p-2.5 rounded-full bg-walnut/10 text-walnut group-hover:bg-walnut group-hover:text-ivory transition-colors shrink-0 mt-0.5">
-                      <Icon className="size-5" />
-                    </div>
-                    <div>
-                      <span className="text-[0.6rem] font-bold uppercase tracking-[0.16em] text-walnut block">
-                        {mat.subtitle}
-                      </span>
-                      <h3 className="font-serif text-lg sm:text-xl font-semibold text-charcoal mb-1">
-                        {mat.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-body font-light leading-relaxed">
-                        {mat.description}
-                      </p>
+        {/* Master Section Card Container */}
+        <Reveal delay={100}>
+          <div className="my-8 sm:my-10 p-6 sm:p-10 lg:p-12 glass-card-dark glossy-reflection rounded-3xl border border-gold-brass/30 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] bg-charcoal-teal-dark/80 backdrop-blur-xl">
+            
+            {/* Visual Pairings and Feature Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Dual Layered Visuals */}
+              <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+                <Reveal direction="left">
+                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-charcoal-teal-dark shadow-2xl border border-gold-brass/30 group">
+                    <Image
+                      src="/images/craft.webp"
+                      alt="Heaven Furniture Mart Luxury Handcrafted Showcase & Credenza"
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-108"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-teal-dark/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 inset-x-3 p-2.5 glass-card-dark text-gold-brass rounded-xl border border-gold-brass/30 shadow-md backdrop-blur-md">
+                      <p className="text-[0.62rem] font-bold font-sans uppercase tracking-wider text-gold-brass">Solid Timber Showcase</p>
+                      <p className="text-[0.58rem] font-sans text-gold-brass-light/80">Hand-carved fluted details</p>
                     </div>
                   </div>
                 </Reveal>
-              );
-            })}
-          </div>
 
-        </div>
+                <Reveal direction="right" delay={120}>
+                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-charcoal-teal-dark shadow-2xl border border-gold-brass/30 group mt-8 sm:mt-12">
+                    <Image
+                      src="/images/bespoke-cabinet.webp"
+                      alt="Heaven Furniture Mart Bespoke Entryway Cabinetry"
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-108"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-teal-dark/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 inset-x-3 p-2.5 glass-card-dark text-gold-brass rounded-xl border border-gold-brass/30 shadow-md backdrop-blur-md">
+                      <p className="text-[0.62rem] font-bold font-sans uppercase tracking-wider text-gold-brass">Architectural Console</p>
+                      <p className="text-[0.58rem] font-sans text-gold-brass-light/80">Louvered ventilation joinery</p>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+
+              {/* Detailed Materials Checklist Cards (2 Cards per Row on Mobile) */}
+              <div className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-5">
+                {materials.map((mat, index) => {
+                  const Icon = mat.icon;
+                  return (
+                    <Reveal key={mat.title} delay={index * 70}>
+                      <div className="p-3.5 sm:p-6 glass-card-dark glossy-reflection rounded-xl sm:rounded-2xl border border-gold-brass/30 shadow-lg flex flex-col sm:flex-row gap-2.5 sm:gap-4 items-start group hover:border-gold-brass/60 transition-all hover:scale-[1.01] h-full">
+                        <div className="p-2 sm:p-2.5 rounded-full bg-gold-brass/15 text-gold-brass group-hover:bg-gold-brass group-hover:text-deep-brown transition-colors shrink-0 shadow-md">
+                          <Icon className="size-4 sm:size-5" />
+                        </div>
+                        <div>
+                          <span className="text-[0.55rem] sm:text-[0.62rem] font-bold font-sans uppercase tracking-[0.14em] text-gold-brass-light block mb-1 truncate">
+                            {mat.subtitle}
+                          </span>
+                          <h3 className="font-serif text-sm sm:text-xl font-semibold text-gold-brass group-hover:text-gold-brass-light transition-colors mb-1 leading-snug">
+                            {mat.title}
+                          </h3>
+                          <p className="text-[0.68rem] sm:text-sm text-gold-brass-light/85 font-sans font-light leading-relaxed">
+                            {mat.description}
+                          </p>
+                        </div>
+                      </div>
+                    </Reveal>
+                  );
+                })}
+              </div>
+
+            </div>
+          </div>
+        </Reveal>
 
       </div>
     </section>
